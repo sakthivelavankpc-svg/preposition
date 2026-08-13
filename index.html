@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preposition for Kids</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #333; /* Dark background to frame the app */
+        }
+        #flash-container {
+            width: 800px; /* Adjust to your app's actual width */
+            height: 600px; /* Adjust to your app's actual height */
+        }
+    </style>
+    <!-- Load the Ruffle emulator -->
+    <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+</head>
+<body>
+
+    <div id="flash-container"></div>
+
+    <script>
+        window.RufflePlayer = window.RufflePlayer || {};
+        window.addEventListener("load", (event) => {
+            const ruffle = window.RufflePlayer.newest();
+            const player = ruffle.createPlayer();
+            const container = document.getElementById("flash-container");
+            container.appendChild(player);
+            
+            // Load your original SWF file
+            player.load("preposition app.swf"); 
+        });
+    </script>
+
+</body>
+</html>
