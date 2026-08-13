@@ -1,0 +1,24 @@
+SOURCE AUDIT
+SWF: preposition app.swf
+Compressed SWF signature: CWS
+SWF version byte: 44
+Uncompressed size: 127263
+Frame rate: 24 fps
+Frame count: 425
+Frame labels:
+home, above, under, beside, outside, inside, ontopof, in front of, behind, between, around, updown, through
+
+Exact text fields recovered from the SWF:
+<p align="left"><font face="Times New Roman" size="49" color="#000000" letterSpacing="0.00" kerning="1">Preposition</font></p>
+<p align="left"><font face="Times New Roman" size="49" color="#000000" letterSpacing="0.00" kerning="1">Above - <font face="Bamini" color="#006600">NkNy</font></font></p>
+<p align="left"><font face="Times New Roman" size="49" color="#000000" letterSpacing="0.00" kerning="1">Under - <font face="Bamini" color="#006600">fPNo</font></font></p>
+<p align="left"><font face="Times New Roman" size="49" color="#000000" letterSpacing="0.00" kerning="1">beside - <font face="Bamini" color="#006600">gf;fj;jpy;</font></font></p>
+<p align="left"><font face="Times New Roman" size="49" color="#000000" letterSpacing="0.00" kerning="1">outside - <font face="Bamini" color="#006600">ntspapy;</font></font></p>
+<p align="left"><font face="Times New Roman" size="49" color="#000000" letterSpacing="0.00" kerning="1">inside - <font face="Bamini" color="#006600">cs;Ns</font></font></p>
+<p align="left"><font face="Times New Roman" size="40" color="#000000" letterSpacing="0.00" kerning="1">on top of - <font face="Bamini" color="#006600">,jd; NkNy</font></font></p>
+<p align="left"><font face="Times New Roman" size="49" color="#000000" letterSpacing="0.00" kerning="1">in front of - <font face="Bamini" color="#006600">Kd;dhy;</font></font></p>
+<p align="left"><font face="Times New Roman" size="49" color="#000000" letterSpacing="0.00" kerning="1">behind - <font face="Bamini" color="#006600">gpd;dhy<font color="#66ff66">;</font></font></font></p>
+<p align="left"><font face="Times New Roman" size="49" color="#000000" letterSpacing="0.00" kerning="1">between - <font face="Bamini" color="#006600">,ilapy;</font></font></p>
+<p align="left"><font face="Times New Roman" size="49" color="#000000" letterSpacing="0.00" kerning="1">around - <font face="Bamini" color="#006600">Rw;wp</font></font></p>
+<p align="left"><font face="Times New Roman" size="29" color="#000000" letterSpacing="0.00" kerning="1">Up / down<font size="49"> -<font face="Bamini" size="37" color="#006600">NkNy <font face="Times New Roman">/ </font>fPNo<font face="Times New Roman"> </font></font></font></font></p>
+<p align="left"><font face="Times New Roman" size="49" color="#000000" letterSpacing="0.00" kerning="1">Through -<font face="Bamini" color="#006600">%yk;</font></font></p>

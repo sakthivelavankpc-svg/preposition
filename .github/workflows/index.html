@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="PREPOSITION FOR KIDS - browser version of the supplied Flash activity.">
+<title>PREPOSITION FOR KIDS</title>
+<link rel="stylesheet" href="styles.css">
+<!-- Official Ruffle website package. Version pinned for reproducibility. -->
+<script src="https://unpkg.com/@ruffle-rs/ruffle@0.4.1"></script>
+</head>
+<body>
+<div class="app">
+  <header class="header">
+    <div class="brand">
+      <div class="brand-mark">P</div>
+      <div><div class="eyebrow">ENGLISH LEARNING</div><h1>PREPOSITION FOR KIDS</h1><p>Interactive browser edition</p></div>
+    </div>
+    <div class="actions">
+      <button id="flashBtn" class="btn ghost">Original Flash</button>
+      <button id="fullBtn" class="btn dark">Fullscreen</button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div>
+      <div class="pill">12 PREPOSITION LESSONS</div>
+      <h2>Learn where things are.</h2>
+      <p>The original SWF contains a sequence of preposition lessons. This browser edition preserves that lesson content and adds a modern HTML fallback, so the app still has usable content when Flash emulation is unavailable.</p>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <div class="box">A</div><div class="arrow">→</div><div class="box second">B</div>
+    </div>
+  </section>
+
+  <nav class="lesson-nav" aria-label="Lessons">
+    <button class="active" data-target="home">Home</button>
+    <button data-target="above">01 Above</button><button data-target="under">02 Under</button><button data-target="beside">03 Beside</button><button data-target="outside">04 Outside</button><button data-target="inside">05 Inside</button><button data-target="ontopof">06 On top of</button><button data-target="in-front-of">07 In front of</button><button data-target="behind">08 Behind</button><button data-target="between">09 Between</button><button data-target="around">10 Around</button><button data-target="updown">11 Up / down</button><button data-target="through">12 Through</button>
+  </nav>
+
+  <main>
+    <section id="home" class="home-view view active">
+      <div class="welcome-card">
+        <div class="welcome-icon">📚</div>
+        <h2>Choose a preposition</h2>
+        <p>Use the lesson buttons above. Each lesson shows the English term, Tamil meaning, the legacy Bamini text found in the SWF, and a simple visual relationship.</p>
+      </div>
+      <div class="flash-card">
+        <div><strong>Original Flash activity</strong><span id="flashStatus">Ruffle will be used when available.</span></div>
+        <button id="openFlash" class="btn primary">Open Original Activity</button>
+      </div>
+    </section>
+
+    <section id="lessons" class="lesson-grid view">
+      
+    <article class="lesson" id="lesson-above">
+      <div class="lesson-head">
+        <div class="lesson-no">01</div>
+        <div>
+          <p class="kicker">PREPOSITION</p>
+          <h2>Above</h2>
+          <p class="tamil">மேலே</p>
+        </div>
+      </div>
+      <div class="scene" data-type="above">
+        <div class="scene-label">POSITION</div>
+        <div class="objects">
+          <div class="obj obj-a">A</div>
+          <div class="relation">Above</div>
+          <div class="obj obj-b">B</div>
+        </div>
+      </div>
+      <p class="meaning">The object is higher than another object.</p>
+      <div class="source-line"><strong>Original SWF text:</strong> Above — <span class="legacy">NkNy</span></div>
+    </article>
+    <article class="lesson" id="lesson-under">
+      <div class="lesson-head">
+        <div class="lesson-no">02</div>
+        <div>
+          <p class="kicker">PREPOSITION</p>
+          <h2>Under</h2>
+          <p class="tamil">கீழே</p>
+        </div>
+      </div>
+      <div class="scene" data-type="under">
+        <div class="scene-label">POSITION</div>
+        <div class="objects">
+          <div class="obj obj-a">A</div>
+          <div class="relation">Under</div>
+          <div class="obj obj-b">B</div>
+        </div>
+      </div>
+      <p class="meaning">The object is lower than another object.</p>
+      <div class="source-line"><strong>Original SWF text:</strong> Under — <span class="legacy">fPNo</span></div>
+    </article>
+    <article class="lesson" id="lesson-beside">
+      <div class="lesson-head">
+        <div class="lesson-no">03</div>
+        <div>
+          <p class="kicker">PREPOSITION</p>
+          <h2>Beside</h2>
+          <p class="tamil">பக்கத்தில்</p>
+        </div>
+      </div>
+      <div class="scene" data-type="beside">
+        <div class="scene-label">POSITION</div>
+        <div class="objects">
+          <div class="obj obj-a">A</div>
+          <div class="relation">Beside</div>
+          <div class="obj obj-b">B</div>
+        </div>
+      </div>
+      <p class="meaning">The object is next to another object.</p>
+      <div class="source-line"><strong>Original SWF text:</strong> Beside — <span class="legacy">gf;fj;jpy;</span></div>
+    </article>
+    <article class="lesson" id="lesson-outside">
+      <div class="lesson-head">
+        <div class="lesson-no">04</div>
+        <div>
+          <p class="kicker">PREPOSITION</p>
+          <h2>Outside</h2>
+          <p class="tamil">வெளியே</p>
+        </div>
+      </div>
+      <div class="scene" data-type="outside">
+        <div class="scene-label">POSITION</div>
+        <div class="objects">
+          <div class="obj obj-a">A</div>
+          <div class="relation">Outside</div>
+          <div class="obj obj-b">B</div>
+        </div>
+      </div>
+      <p class="meaning">The object is not inside something.</p>
+      <div class="source-line"><strong>Original SWF text:</strong> Outside — <span class="legacy">ntspapy;</span></div>
+    </article>
+    <article class="lesson" id="lesson-inside">
+      <div class="lesson-head">
+        <div class="lesson-no">05</div>
+        <div>
+          <p class="kicker">PREPOSITION</p>
+          <h2>Inside</h2>
+          <p class="tamil">உள்ளே</p>
+        </div>
+      </div>
+      <div class="scene" data-type="inside">
+        <div class="scene-label">POSITION</div>
+        <div class="objects">
+          <div class="obj obj-a">A</div>
+          <div class="relation">Inside</div>
+          <div class="obj obj-b">B</div>
+        </div>
+      </div>
+      <p class="meaning">The object is within something.</p>
+      <div class="source-line"><strong>Original SWF text:</strong> Inside — <span class="legacy">cs;Ns</span></div>
+    </article>
+    <article class="lesson" id="lesson-ontopof">
+      <div class="lesson-head">
+        <div class="lesson-no">06</div>
+        <div>
+          <p class="kicker">PREPOSITION</p>
+          <h2>On top of</h2>
+          <p class="tamil">மேலே / அதன் மேல்</p>
+        </div>
+      </div>
+      <div class="scene" data-type="ontopof">
+        <div class="scene-label">POSITION</div>
+        <div class="objects">
+          <div class="obj obj-a">A</div>
+          <div class="relation">On top of</div>
+          <div class="obj obj-b">B</div>
+        </div>
+      </div>
+      <p class="meaning">The object is directly on the upper surface of another object.</p>
+      <div class="source-line"><strong>Original SWF text:</strong> On top of — <span class="legacy">,jd; NkNy</span></div>
+    </article>
+    <article class="lesson" id="lesson-in-front-of">
+      <div class="lesson-head">
+        <div class="lesson-no">07</div>
+        <div>
+          <p class="kicker">PREPOSITION</p>
+          <h2>In front of</h2>
+          <p class="tamil">முன்னால்</p>
+        </div>
+      </div>
+      <div class="scene" data-type="in front of">
+        <div class="scene-label">POSITION</div>
+        <div class="objects">
+          <div class="obj obj-a">A</div>
+          <div class="relation">In front of</div>
+          <div class="obj obj-b">B</div>
+        </div>
+      </div>
+      <p class="meaning">The object is ahead of another object.</p>
+      <div class="source-line"><strong>Original SWF text:</strong> In front of — <span class="legacy">Kd;dhy;</span></div>
+    </article>
+    <article class="lesson" id="lesson-behind">
+      <div class="lesson-head">
+        <div class="lesson-no">08</div>
+        <div>
+          <p class="kicker">PREPOSITION</p>
+          <h2>Behind</h2>
+          <p class="tamil">பின்னால்</p>
+        </div>
+      </div>
+      <div class="scene" data-type="behind">
+        <div class="scene-label">POSITION</div>
+        <div class="objects">
+          <div class="obj obj-a">A</div>
+          <div class="relation">Behind</div>
+          <div class="obj obj-b">B</div>
+        </div>
+      </div>
+      <p class="meaning">The object is at the back of another object.</p>
+      <div class="source-line"><strong>Original SWF text:</strong> Behind — <span class="legacy">gpd;dhy;</span></div>
+    </article>
+    <article class="lesson" id="lesson-between">
+      <div class="lesson-head">
+        <div class="lesson-no">09</div>
+        <div>
+          <p class="kicker">PREPOSITION</p>
+          <h2>Between</h2>
+          <p class="tamil">இடையில்</p>
+        </div>
+      </div>
+      <div class="scene" data-type="between">
+        <div class="scene-label">POSITION</div>
+        <div class="objects">
+          <div class="obj obj-a">A</div>
+          <div class="relation">Between</div>
+          <div class="obj obj-b">B</div>
+        </div>
+      </div>
+      <p class="meaning">The object is in the space separating two objects.</p>
+      <div class="source-line"><strong>Original SWF text:</strong> Between — <span class="legacy">,ilapy;</span></div>
+    </article>
+    <article class="lesson" id="lesson-around">
+      <div class="lesson-head">
+        <div class="lesson-no">10</div>
+        <div>
+          <p class="kicker">PREPOSITION</p>
+          <h2>Around</h2>
+          <p class="tamil">சுற்றி</p>
+        </div>
+      </div>
+      <div class="scene" data-type="around">
+        <div class="scene-label">POSITION</div>
+        <div class="objects">
+          <div class="obj obj-a">A</div>
+          <div class="relation">Around</div>
+          <div class="obj obj-b">B</div>
+        </div>
+      </div>
+      <p class="meaning">The object surrounds or is on all sides of another object.</p>
+      <div class="source-line"><strong>Original SWF text:</strong> Around — <span class="legacy">Rw;wp</span></div>
+    </article>
+    <article class="lesson" id="lesson-updown">
+      <div class="lesson-head">
+        <div class="lesson-no">11</div>
+        <div>
+          <p class="kicker">PREPOSITION</p>
+          <h2>Up / down</h2>
+          <p class="tamil">மேலே / கீழே</p>
+        </div>
+      </div>
+      <div class="scene" data-type="updown">
+        <div class="scene-label">POSITION</div>
+        <div class="objects">
+          <div class="obj obj-a">A</div>
+          <div class="relation">Up / down</div>
+          <div class="obj obj-b">B</div>
+        </div>
+      </div>
+      <p class="meaning">Up shows movement or position toward a higher place; down shows movement toward a lower place.</p>
+      <div class="source-line"><strong>Original SWF text:</strong> Up / down — <span class="legacy">NkNy / fPNo</span></div>
+    </article>
+    <article class="lesson" id="lesson-through">
+      <div class="lesson-head">
+        <div class="lesson-no">12</div>
+        <div>
+          <p class="kicker">PREPOSITION</p>
+          <h2>Through</h2>
+          <p class="tamil">வழியாக</p>
+        </div>
+      </div>
+      <div class="scene" data-type="through">
+        <div class="scene-label">POSITION</div>
+        <div class="objects">
+          <div class="obj obj-a">A</div>
+          <div class="relation">Through</div>
+          <div class="obj obj-b">B</div>
+        </div>
+      </div>
+      <p class="meaning">The object moves from one side to another through an opening or space.</p>
+      <div class="source-line"><strong>Original SWF text:</strong> Through — <span class="legacy">%yk;</span></div>
+    </article>
+    </section>
+  </main>
+
+  <section id="flashPanel" class="flash-panel" hidden>
+    <div class="flash-head">
+      <div><strong>Original PREPOSITION FOR KIDS</strong><span>Supplied SWF played with Ruffle</span></div>
+      <button id="closeFlash" class="btn ghost">Close</button>
+    </div>
+    <div id="ruffleHost" class="ruffle-host">
+      <div class="loading">Starting original Flash activity…</div>
+      <object id="flashObject" data="assets/preposition%20app.swf" type="application/x-shockwave-flash">
+        <param name="movie" value="assets/preposition%20app.swf">
+        <param name="allowScriptAccess" value="sameDomain">
+      </object>
+    </div>
+  </section>
+
+  <footer>
+    <span>Content recovered from the supplied <code>preposition app.swf</code>.</span>
+    <a href="https://ruffle.rs/" target="_blank" rel="noopener">Ruffle</a>
+  </footer>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
