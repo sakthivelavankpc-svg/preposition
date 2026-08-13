@@ -20,6 +20,7 @@
         #flash-container {
             width: 100vw;
             height: 100vh;
+            height: 100dvh; /* FIX: Prevents mobile URL bar from cutting off the app */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -99,48 +100,67 @@
         window.RufflePlayer.config = {
             letterbox: "on",
             backgroundColor: "#f0f8ff", 
-            autoplay: "on"
+            autoplay: "on",
+            unmuteOverlay: "hidden" // FIX: Prevents Ruffle from showing a second invisible play button
         };
 
-        window.addEventListener("load", (event) => {
-            const ruffle = window.RufflePlayer.newest();
-            const player = ruffle.createPlayer();
-            const container = document.getElementById("flash-container");
-            container.appendChild(player);
-            
-            // Matches your renamed file on GitHub Pages
-            player.load("preposition_app.swf"); 
-        });
+        // Initialize a global variable for the player
+        let player = null;
 
         function startApp() {
             document.getElementById('play-overlay').style.display = 'none';
             document.getElementById('fs-button').style.display = 'block';
             
+            // FIX: Initialize and load the SWF inside the click event.
+            // Mobile browsers require a physical tap to allow audio and autoplay.
+            if (!player) {
+                const ruffle = window.RufflePlayer.newest();
+                player = ruffle.createPlayer();
+                const container = document.getElementById("flash-container");
+                container.appendChild(player);
+                
+                // Matches your renamed file on GitHub Pages
+                player.load("preposition_app.swf"); 
+            }
+
             const docEl = document.documentElement;
-            if (docEl.requestFullscreen) {
-                docEl.requestFullscreen();
-            } else if (docEl.webkitRequestFullscreen) {
-                docEl.webkitRequestFullscreen();
-            } else if (docEl.msRequestFullscreen) {
-                docEl.msRequestFullscreen();
+            
+            // FIX: Safely attempt fullscreen. iPhones do not support this and will crash if not caught.
+            try {
+                if (docEl.requestFullscreen) {
+                    const promise = docEl.requestFullscreen();
+                    if (promise) promise.catch(err => console.warn("Fullscreen ignored by mobile browser"));
+                } else if (docEl.webkitRequestFullscreen) {
+                    docEl.webkitRequestFullscreen();
+                } else if (docEl.msRequestFullscreen) {
+                    docEl.msRequestFullscreen();
+                }
+            } catch (err) {
+                console.warn("Fullscreen API not supported on this device.");
             }
         }
 
         function toggleFullScreen() {
-            if (!document.fullscreenElement && !document.webkitFullscreenElement) {  
-                if (document.documentElement.requestFullscreen) {
-                    document.documentElement.requestFullscreen();
-                } else if (document.documentElement.webkitRequestFullscreen) {
-                    document.documentElement.webkitRequestFullscreen();
+            try {
+                if (!document.fullscreenElement && !document.webkitFullscreenElement) {  
+                    if (document.documentElement.requestFullscreen) {
+                        const promise = document.documentElement.requestFullscreen();
+                        if (promise) promise.catch(e => console.warn(e));
+                    } else if (document.documentElement.webkitRequestFullscreen) {
+                        document.documentElement.webkitRequestFullscreen();
+                    }
+                    document.getElementById('fs-button').innerText = "Exit Fullscreen";
+                } else {
+                    if (document.exitFullscreen) {
+                        const promise = document.exitFullscreen();
+                        if (promise) promise.catch(e => console.warn(e));
+                    } else if (document.webkitExitFullscreen) {
+                        document.webkitExitFullscreen();
+                    }
+                    document.getElementById('fs-button').innerText = "Go Fullscreen";
                 }
-                document.getElementById('fs-button').innerText = "Exit Fullscreen";
-            } else {
-                if (document.exitFullscreen) {
-                    document.exitFullscreen();
-                } else if (document.webkitExitFullscreen) {
-                    document.webkitExitFullscreen();
-                }
-                document.getElementById('fs-button').innerText = "Go Fullscreen";
+            } catch (err) {
+                console.warn("Fullscreen toggle failed or unsupported.");
             }
         }
     </script>
