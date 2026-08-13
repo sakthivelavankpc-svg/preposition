@@ -2,22 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- This meta tag is crucial for mobile. It prevents pinch-zooming and sets the correct scale -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Preposition for Kids</title>
     <style>
-        /* Remove all default browser margins and prevent scrolling */
         html, body {
             margin: 0;
             padding: 0;
             width: 100%;
             height: 100%;
-            background-color: #000; /* Black background looks best for fullscreen */
+            background-color: #f0f8ff; /* Light Alice Blue background */
             overflow: hidden; 
-            touch-action: none; /* Prevents mobile swipe-to-refresh or zooming */
+            touch-action: none;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        /* Make the container stretch to the full width and height of the screen */
         #flash-container {
             width: 100vw;
             height: 100vh;
@@ -26,25 +24,53 @@
             align-items: center;
         }
 
-        /* Style for the fullscreen button */
+        /* The starting overlay that instructs the user to play */
+        #play-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #f0f8ff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        #play-button {
+            padding: 20px 40px;
+            font-size: 26px;
+            font-weight: bold;
+            color: white;
+            background-color: #4CAF50; /* Friendly green button */
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        #play-button:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+        }
+
+        /* Smaller fullscreen toggle button for later */
         #fs-button {
             position: absolute;
             top: 15px;
             right: 15px;
-            padding: 10px 15px;
-            background-color: rgba(255, 255, 255, 0.2);
-            color: white;
-            border: 2px solid white;
-            border-radius: 8px;
-            font-family: sans-serif;
+            padding: 8px 12px;
+            background-color: #ffffff;
+            color: #333;
+            border: 1px solid #ccc;
+            border-radius: 6px;
             font-weight: bold;
             cursor: pointer;
-            z-index: 1000; /* Ensures the button stays on top of the animation */
-            transition: background-color 0.3s;
-        }
-
-        #fs-button:hover {
-            background-color: rgba(255, 255, 255, 0.5);
+            z-index: 1000;
+            display: none; /* Hidden until they click play */
         }
     </style>
     <!-- Load the Ruffle emulator -->
@@ -52,19 +78,23 @@
 </head>
 <body>
 
-    <!-- Fullscreen Button -->
-    <button id="fs-button" onclick="toggleFullScreen()">Go Fullscreen</button>
+    <!-- Initial Play Screen -->
+    <div id="play-overlay">
+        <button id="play-button" onclick="startApp()">Click Here to Play!</button>
+    </div>
+
+    <!-- Fullscreen Toggle (Hidden initially) -->
+    <button id="fs-button" onclick="toggleFullScreen()">Exit Fullscreen</button>
 
     <!-- App Container -->
     <div id="flash-container"></div>
 
     <script>
-        // Ruffle Configuration
         window.RufflePlayer = window.RufflePlayer || {};
         window.RufflePlayer.config = {
-            // "showAll" ensures the app scales up as much as possible without cropping
             letterbox: "on",
-            backgroundColor: "#000000"
+            backgroundColor: "#f0f8ff", // Ensures the Flash background matches the webpage
+            autoplay: "on"
         };
 
         window.addEventListener("load", (event) => {
@@ -77,27 +107,34 @@
             player.load("preposition_app.swf"); 
         });
 
-        // Function to handle the Fullscreen button
+        function startApp() {
+            // Hide the startup overlay
+            document.getElementById('play-overlay').style.display = 'none';
+            // Show the standard fullscreen toggle button
+            document.getElementById('fs-button').style.display = 'block';
+            
+            // Trigger fullscreen mode automatically on mobile and PC
+            const docEl = document.documentElement;
+            if (docEl.requestFullscreen) {
+                docEl.requestFullscreen();
+            } else if (docEl.webkitRequestFullscreen) {
+                docEl.webkitRequestFullscreen();
+            } else if (docEl.msRequestFullscreen) {
+                docEl.msRequestFullscreen();
+            }
+        }
+
         function toggleFullScreen() {
-            if (!document.fullscreenElement &&    // standard
-                !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement ) {  // vendor prefixes
+            if (!document.fullscreenElement && !document.webkitFullscreenElement) {  
                 if (document.documentElement.requestFullscreen) {
                     document.documentElement.requestFullscreen();
-                } else if (document.documentElement.msRequestFullscreen) {
-                    document.documentElement.msRequestFullscreen();
-                } else if (document.documentElement.mozRequestFullScreen) {
-                    document.documentElement.mozRequestFullScreen();
                 } else if (document.documentElement.webkitRequestFullscreen) {
-                    document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+                    document.documentElement.webkitRequestFullscreen();
                 }
                 document.getElementById('fs-button').innerText = "Exit Fullscreen";
             } else {
                 if (document.exitFullscreen) {
                     document.exitFullscreen();
-                } else if (document.msExitFullscreen) {
-                    document.msExitFullscreen();
-                } else if (document.mozCancelFullScreen) {
-                    document.mozCancelFullScreen();
                 } else if (document.webkitExitFullscreen) {
                     document.webkitExitFullscreen();
                 }
