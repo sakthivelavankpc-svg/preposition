@@ -10,12 +10,13 @@
             padding: 0;
             width: 100%;
             height: 100%;
-            background-color: #f0f8ff; /* Light Alice Blue background */
+            background-color: #f0f8ff; 
             overflow: hidden; 
             touch-action: none;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
+        /* Exactly 100% of the screen width and height */
         #flash-container {
             width: 100vw;
             height: 100vh;
@@ -24,13 +25,12 @@
             align-items: center;
         }
 
-        /* THIS IS THE MAGIC FIX TO MAKE THE FLASH CONTENT FILL THE SCREEN */
+        /* Forces the Flash emulator to stretch to the container's edges */
         ruffle-player {
             width: 100% !important;
             height: 100% !important;
         }
 
-        /* The starting overlay that instructs the user to play */
         #play-overlay {
             position: absolute;
             top: 0;
@@ -50,7 +50,7 @@
             font-size: 26px;
             font-weight: bold;
             color: white;
-            background-color: #4CAF50; /* Friendly green button */
+            background-color: #4CAF50; 
             border: none;
             border-radius: 50px;
             cursor: pointer;
@@ -63,7 +63,6 @@
             transform: scale(1.05);
         }
 
-        /* Smaller fullscreen toggle button for later */
         #fs-button {
             position: absolute;
             top: 15px;
@@ -76,7 +75,7 @@
             font-weight: bold;
             cursor: pointer;
             z-index: 1000;
-            display: none; /* Hidden until they click play */
+            display: none; 
         }
     </style>
     <!-- Load the Ruffle emulator -->
@@ -89,7 +88,7 @@
         <button id="play-button" onclick="startApp()">Click Here to Play!</button>
     </div>
 
-    <!-- Fullscreen Toggle (Hidden initially) -->
+    <!-- Fullscreen Toggle -->
     <button id="fs-button" onclick="toggleFullScreen()">Exit Fullscreen</button>
 
     <!-- App Container -->
@@ -99,7 +98,7 @@
         window.RufflePlayer = window.RufflePlayer || {};
         window.RufflePlayer.config = {
             letterbox: "on",
-            backgroundColor: "#f0f8ff", // Ensures the Flash background matches the webpage
+            backgroundColor: "#f0f8ff", 
             autoplay: "on"
         };
 
@@ -109,17 +108,14 @@
             const container = document.getElementById("flash-container");
             container.appendChild(player);
             
-            // Load your correctly named SWF file
+            // Matches your renamed file on GitHub Pages
             player.load("preposition_app.swf"); 
         });
 
         function startApp() {
-            // Hide the startup overlay
             document.getElementById('play-overlay').style.display = 'none';
-            // Show the standard fullscreen toggle button
             document.getElementById('fs-button').style.display = 'block';
             
-            // Trigger fullscreen mode automatically on mobile and PC
             const docEl = document.documentElement;
             if (docEl.requestFullscreen) {
                 docEl.requestFullscreen();
